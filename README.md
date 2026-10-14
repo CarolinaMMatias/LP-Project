@@ -1,17 +1,29 @@
-# LP1-Estrelas⭐
+# Star Battle Solver — Prolog
 
-Primeiro projeto de Lógica para programação (24/25)
+Project developed for the **Lógica para Programação** (Logic for Programming) course at **Instituto Superior Técnico (IST)**.
 
-*Realizado por Carolina Matias*
-***
-💫**Sobre o projeto**
-O projeto tinha como objetivo desenvolver um programa em Prolog capaz de resolver os desafios do jogo *Star Battle*, uma aplicação que apresenta puzzles baseados em lógica.
+---
 
-***
+## 🧩 About the Project
 
-🎯**Regras e Objetivo do jogo**
+An automated logic puzzle solver for **Star Battle** implemented in **SWI-Prolog**.
 
-Resolver o puzzle (num tabuleiro N*N) de modo a que:
-    Cada linha, coluna e região do tabuleiro contenha exatamente duas estrelas tendo em conta que uma estrela não pode estar na vizinhança de outra outra estrela.
-    Isto é, após ser colocada uma estrela, não pode existir outra estrela adjacente à primeira. Sempre que se conclui que não pode existir uma estrela numa dada 
-    posição, deve inserir-se um ponto nessa posição.
+### 🎯 Puzzle Rules:
+* Played on an $N \times N$ grid (e.g., $9 \times 9$) divided into distinct regions.
+* Place **exactly 2 stars** in every row, column, and region.
+* **No two stars can touch**, even diagonally (all adjacent positions must be filled with dots).
+
+---
+
+## ⚙️ Implementation & Features
+
+* **Board Representation**: Grid modeled as a list of lists using Prolog variables (`_`), stars (`e`), and dots (`p`).
+* **Deductive Strategies**:
+  * Line and region completion (`fecha/2`): fills remaining cells with dots when two stars are placed, or inserts stars when only valid spots remain.
+  * Pattern detection (`aplicaPadroes/2`): identifies specific sequences (I-patterns and T-patterns) to place stars and dots.
+* **Solver (`resolve/2`)**: Iteratively applies logical rules and heuristics until the board reaches a stable solution without brute-force search.
+
+---
+
+## 💻 Tech Stack
+* SWI-Prolog
